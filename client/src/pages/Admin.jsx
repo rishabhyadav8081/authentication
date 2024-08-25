@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import {  deleteUser, get } from '../services/ApiEndpoint'
 import  { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom'
 
 export default function Admin() {
   const [users,setUsers]=useState('')
+  const navigate=useNavigate()
 
 
   useEffect(()=>{
@@ -36,6 +38,9 @@ export default function Admin() {
           }
        }
   }
+  const backhome = ()=>{
+    navigate('/')
+  }
   return (
     <>
       <div className='admin-container'>
@@ -62,6 +67,8 @@ export default function Admin() {
             })}
               
             </tbody>
+           <button className='logout-btn' onClick={backhome}>go back to home </button>
+
         </table>
       </div>
     </>

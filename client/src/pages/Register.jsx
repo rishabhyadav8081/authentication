@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import { post } from '../services/ApiEndpoint'
 import { toast } from 'react-hot-toast';
+
 export default function Register() {
   const [name,setName]=useState('')
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
-
+  const navigate=useNavigate()
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
@@ -15,6 +16,7 @@ export default function Register() {
      const reposne=request.data
      if (request.status==200) {
           toast.success(reposne.message)
+          navigate('/login')
      }
      console.log(reposne)
     } catch (error) {

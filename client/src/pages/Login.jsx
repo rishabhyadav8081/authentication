@@ -4,6 +4,7 @@ import { post } from '../services/ApiEndpoint'
 import  { toast } from 'react-hot-toast';
 import {useDispatch,useSelector } from 'react-redux'
 import { SetUser } from '../redux/AuthSlice';
+
 export default function Login() {
  const user=useSelector((state)=>state.Auth)
  console.log(user)
